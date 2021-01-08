@@ -139,7 +139,11 @@ export class FilterBar extends Component {
   };
 
   render() {
-    const { classes, light, isMobile } = this.props;
+    const {
+      classes,
+      light,
+      browser: { isMobile },
+    } = this.props;
     const {
       filters: { filterJob, filterLocation, fullTime },
       locationOn,
@@ -176,6 +180,7 @@ export class FilterBar extends Component {
             })
           }
           fullWidth
+          data-test="textField1"
         ></TextField>
         {isMobile ? (
           <FilterListOutlinedIcon></FilterListOutlinedIcon>
@@ -256,7 +261,7 @@ export class FilterBar extends Component {
 FilterBar.propTypes = {
   classes: PropTypes.object,
   light: PropTypes.bool,
-  isMobile: PropTypes.bool,
+  browser: PropTypes.object,
   page: PropTypes.number,
   filter: PropTypes.object,
   filterActions: PropTypes.func,
@@ -271,7 +276,7 @@ const mapStateToProps = (state) => {
     filter: state.filter,
     page: state.jobs.page,
     light: state.theme.light,
-    browser: state.browser.isMobile,
+    browser: state.browser,
   };
 };
 

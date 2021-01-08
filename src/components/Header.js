@@ -60,7 +60,6 @@ function Header(props) {
 }
 
 Header.propTypes = {
-  classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
   toggleTheme: PropTypes.func.isRequired,
 };

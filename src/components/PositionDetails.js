@@ -98,12 +98,6 @@ class PositionDetails extends Component {
       isMobile,
     } = this.props;
     console.log("positionDetails is mobile", isMobile);
-    let howToApplyLink = "";
-    if (how_to_apply) {
-      let doc = new DOMParser().parseFromString(how_to_apply, "text/xml");
-      howToApplyLink = doc.children[0].children[0].attributes["href"].value;
-    }
-    console.log("howToApplyLink", howToApplyLink);
     return (
       <div className="flex container column" style={{ overflow: "hidden" }}>
         <div style={{ display: "inline" }}>
@@ -148,7 +142,6 @@ class PositionDetails extends Component {
               location={location}
               description={description}
               loading_job={loading_job}
-              how_to_apply_link={howToApplyLink}
             ></PositionDescription>
             <Paper
               className="flex container column"
@@ -179,7 +172,6 @@ class PositionDetails extends Component {
               </div>
               <div className="container" style={{ display: "inline" }}>
                 <Button
-                  href={howToApplyLink}
                   variant="contained"
                   color="primary"
                   className={
@@ -198,7 +190,6 @@ class PositionDetails extends Component {
 }
 
 PositionDetails.propTypes = {
-  classes: PropTypes.object.isRequired,
   jobs: PropTypes.object,
   isMobile: PropTypes.bool.isRequired,
   fetchJob: PropTypes.func.isRequired,

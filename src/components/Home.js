@@ -115,13 +115,12 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  classes: PropTypes.object.isRequired,
   jobs: PropTypes.object,
   filter: PropTypes.object.isRequired,
   isMobile: PropTypes.bool.isRequired,
-  fetchJobs: PropTypes.object.isRequired,
-  changePage: PropTypes.object.isRequired,
-  clearJobs: PropTypes.object.isRequired,
+  fetchJobs: PropTypes.func.isRequired,
+  changePage: PropTypes.func.isRequired,
+  clearJobs: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => {
   return {

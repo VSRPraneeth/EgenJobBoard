@@ -65,7 +65,6 @@ function PositionDescription(props) {
     title,
     location,
     description,
-    how_to_apply_link,
     loading_job,
     isMobile,
   } = props;
@@ -100,7 +99,6 @@ function PositionDescription(props) {
               style={{ display: "inline", width: "100%" }}
             >
               <Button
-                href={how_to_apply_link}
                 variant="contained"
                 color="primary"
                 className={
@@ -125,13 +123,11 @@ function PositionDescription(props) {
 }
 
 PositionDescription.propTypes = {
-  classes: PropTypes.object.isRequired,
   created_at: PropTypes.string,
   type: PropTypes.string,
   title: PropTypes.string,
   location: PropTypes.string,
   description: PropTypes.string,
-  how_to_apply_link: PropTypes.string,
   loading_job: PropTypes.bool,
   isMobile: PropTypes.bool,
 };

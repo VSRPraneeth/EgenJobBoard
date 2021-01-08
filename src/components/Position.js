@@ -102,7 +102,6 @@ function Position(props) {
 }
 
 Position.propTypes = {
-  classes: PropTypes.object.isRequired,
   position: PropTypes.object.isRequired,
 };
 

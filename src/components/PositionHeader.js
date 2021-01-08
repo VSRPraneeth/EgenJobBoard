@@ -139,7 +139,6 @@ function PositionHeader(props) {
 }
 
 PositionHeader.propTypes = {
-  classes: PropTypes.object.isRequired,
   company: PropTypes.string,
   company_url: PropTypes.string,
   company_logo: PropTypes.string,
