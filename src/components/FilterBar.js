@@ -78,18 +78,20 @@ export class FilterBar extends Component {
   }
 
   getLocationCoords() {
-    navigator.permissions.query({ name: "geolocation" }).then((result) => {
-      if (result.state === "granted") {
-        console.log("filterBar granted", result);
-        this.returnGeoCoords();
-      } else if (result.state === "prompt") {
-        console.log("filterBar prompt");
-        this.returnGeoCoords();
-      } else if (result.state === "denied") {
-        console.log("filterBar denied", result);
-        this.returnGeoCoords();
-      }
-    });
+    if (navigator && navigator.permissions) {
+      navigator.permissions.query({ name: "geolocation" }).then((result) => {
+        if (result.state === "granted") {
+          console.log("filterBar granted", result);
+          this.returnGeoCoords();
+        } else if (result.state === "prompt") {
+          console.log("filterBar prompt");
+          this.returnGeoCoords();
+        } else if (result.state === "denied") {
+          console.log("filterBar denied", result);
+          this.returnGeoCoords();
+        }
+      });
+    }
   }
 
   returnGeoCoords() {
