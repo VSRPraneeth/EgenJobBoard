@@ -1,0 +1,62 @@
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  background-color: rgb(245, 245, 245);
+  height: 100%;
+  width: 100%;
+  font-size: 12px;
+}
+
+div#root {
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  --main: #5865e0;
+  --dark-bg: #19212d;
+  --dark-paper-bg: #131822;
+  --light-bg: #f5f6f8;
+  --light-paper-bg: #ffffff;
+  --abc: #b22a00;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.height-auto {
+  height: auto;
+}
+
+.width-auto {
+  width: auto;
+}
+
+.flex.container.column {
+  flex-direction: column;
+}
+
+.flex.container.row {
+  flex-direction: row;
+}
+
+a {
+  /* text-decoration: none; */
+  color: inherit;
+}
+
+.dark {
+  background-color: var(--dark-bg);
+}
+
+.light {
+  background-color: var(--light-bg);
+}
