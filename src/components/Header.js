@@ -49,7 +49,10 @@ function Header(props) {
           JOB BOARD
         </Typography>
       </div>
-      <div className="flex container" style={{ justifyContent: "flex-end" }}>
+      <div
+        className="flex container"
+        style={{ justifyContent: "flex-end", WebkitJustifyContent: "flex-end" }}
+      >
         <span onClick={props.toggleTheme} className={classes.icons}>
           <WbSunnyIcon className={classes.marginRight}></WbSunnyIcon> {lightOn}
           <Brightness3Icon className={classes.marginRight}></Brightness3Icon>

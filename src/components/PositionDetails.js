@@ -121,7 +121,10 @@ class PositionDetails extends Component {
         {loading_job ? (
           <div
             className="flex container"
-            style={{ justifyContent: "center", alignItems: "center" }}
+            style={{
+              justifyContent: "center",
+              alignItems: "center",
+            }}
           >
             <CircularProgress size={100} thickness={2}></CircularProgress>
           </div>
@@ -151,6 +154,7 @@ class PositionDetails extends Component {
                 margin: "20px 0px",
                 padding: "10px",
                 backgroundColor: "var(--main)",
+                flexShrink: 0,
               }}
             >
               <div
@@ -161,7 +165,10 @@ class PositionDetails extends Component {
               ></div>
             </Paper>
 
-            <div className={`flex container ` + (isMobile ? "column" : "row")}>
+            <div
+              className={`flex container ` + (isMobile ? "column" : "row")}
+              style={{ flexShrink: 0, height: "auto" }}
+            >
               <div className="flex container column">
                 <Typography variant="h5" color="textSecondary">
                   {title}

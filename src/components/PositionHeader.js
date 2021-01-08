@@ -99,7 +99,9 @@ function PositionHeader(props) {
           className="flex container"
           style={{
             justifyContent: "center",
+            WebkitJustifyContent: "center",
             alignItems: "center",
+            WebkitAlignItems: "center",
             height: "100px",
           }}
         >

@@ -30,6 +30,12 @@ div#root {
 
 .flex {
   display: flex;
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
 }
 
 .height-auto {
@@ -42,10 +48,12 @@ div#root {
 
 .flex.container.column {
   flex-direction: column;
+  -webkit-flex-direction: column;
 }
 
 .flex.container.row {
   flex-direction: row;
+  -webkit-flex-direction: row;
 }
 
 a {

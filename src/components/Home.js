@@ -79,6 +79,7 @@ class Home extends Component {
             className="flex"
             style={{
               flexWrap: "wrap",
+              flexShrink: 0,
             }}
           >
             {jobs.map((position) => (
@@ -90,6 +91,8 @@ class Home extends Component {
             className="flex"
             style={{
               justifyContent: "center",
+              WebkitJustifyContent: "center",
+              WebkitAlignItems: "center",
               alignItems: "center",
               marginBottom: "10px",
             }}

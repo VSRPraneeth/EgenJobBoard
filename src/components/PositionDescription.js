@@ -77,6 +77,7 @@ function PositionDescription(props) {
         width: "auto",
         margin: "20px 0px",
         padding: "20px",
+        flexShrink: 0,
       }}
     >
       {!loading_job && (
