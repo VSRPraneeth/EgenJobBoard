@@ -57,18 +57,22 @@ export const fetchJobs = (filterData, pageNumber) => (dispatch) => {
   }
   dispatch(fetchJobsRequest());
   console.log("GET Jobss : ", params);
-  setTimeout(() => {
-    dispatch(fetchJobsSuccess(testValues));
-  }, 2000);
-  // axios
-  //   .get("/positions.json", { params: params })
-  //   .then((res) => {
-  //     dispatch(fetchJobsSuccess(res.data));
-  //   })
-  //   .catch((err) => {
-  //     console.log("error", err);
-  //     dispatch(fetchJobsFailure(err.message));
-  //   });
+  // setTimeout(() => {
+  //   dispatch(fetchJobsSuccess(testValues));
+  // }, 2000);
+  var date = new Date();
+  console.log(date.getTime());
+  axios
+    .get("/positions.json", { params: params })
+    .then((res) => {
+      var date = new Date();
+      console.log(date.getTime());
+      dispatch(fetchJobsSuccess(res.data));
+    })
+    .catch((err) => {
+      console.log("error", err);
+      dispatch(fetchJobsFailure(err.message));
+    });
 };
 
 // Single Job
@@ -94,19 +98,19 @@ export const fetchJobFailure = (error) => {
 
 export const fetchJob = (jobId) => (dispatch) => {
   dispatch(fetchJobRequest());
-  setTimeout(() => {
-    console.log("GET Job : ", testValue);
-    dispatch(fetchJobSuccess(testValue));
-  }, 2000);
-  // axios
-  //   .get(`/positions/${jobId}.json`)
-  //   .then((res) => {
-  //     dispatch(fetchJobSuccess(res.data));
-  //   })
-  //   .catch((err) => {
-  //     console.log("error", err);
-  //     dispatch(fetchJobFailure(err.message));
-  //   });
+  // setTimeout(() => {
+  //   console.log("GET Job : ", testValue);
+  //   dispatch(fetchJobSuccess(testValue));
+  // }, 2000);
+  axios
+    .get(`/positions/${jobId}.json`)
+    .then((res) => {
+      dispatch(fetchJobSuccess(res.data));
+    })
+    .catch((err) => {
+      console.log("error", err);
+      dispatch(fetchJobFailure(err.message));
+    });
 };
 
 // Change A Page

@@ -22,7 +22,7 @@ import { mobileActions } from "./redux/actions/browserActions";
 import { filterActions } from "./redux/actions/filterActions";
 import browserChecker from "./util/browserChecker";
 
-const corsURl = "https://cors-anywhere.herokuapp.com";
+const corsURl = "https://egen-job-board.herokuapp.com";
 axios.defaults.baseURL = `${corsURl}/https://jobs.github.com`;
 
 const lightTheme = createMuiTheme({
@@ -117,7 +117,7 @@ function App() {
       <Router>
         <div className={`container ` + (light ? "light" : "dark")}>
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/" component={Home}>
               <Redirect to="/positions" />
             </Route>
             <Route exact path="/positions" component={Home} />
