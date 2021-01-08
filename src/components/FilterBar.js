@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 // MUI Stuff
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -11,7 +12,6 @@ import Typography from "@material-ui/core/Typography";
 
 import SearchIcon from "@material-ui/icons/Search";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
-import FilterList from "@material-ui/icons/FilterList";
 import FilterListOutlinedIcon from "@material-ui/icons/FilterListOutlined";
 import LocationOffIcon from "@material-ui/icons/LocationOff";
 
@@ -67,11 +67,12 @@ export class FilterBar extends Component {
 
   componentDidMount() {
     this.setState(
-      { filters: { ...this.props.filter }, locationOn: this.props.locationOn },
+      {
+        filters: { ...this.props.filter },
+        locationOn: true,
+      },
       () => {
-        if (this.props.locationOn) {
-          this.getLocationCoords();
-        }
+        this.getLocationCoords();
       }
     );
   }
@@ -95,18 +96,20 @@ export class FilterBar extends Component {
     navigator.geolocation.getCurrentPosition(
       (location) => {
         console.log("filterBar location", location);
-        this.setState({
-          filters: {
-            ...this.state.filters,
-            filterLocation: "",
-            filterLatLong: {
-              lat: location.coords.latitude,
-              long: location.coords.longitude,
+        this.setState(
+          {
+            filters: {
+              ...this.state.filters,
+              filterLocation: "",
+              filterLatLong: {
+                lat: location.coords.latitude,
+                long: location.coords.longitude,
+              },
             },
+            locationOn: true,
           },
-          locationOn: true,
-        });
-        this.props.locationActions(true);
+          () => this.props.locationActions(true)
+        );
       },
       (error) => {
         console.log("filterBar error", error);
@@ -134,11 +137,7 @@ export class FilterBar extends Component {
   };
 
   render() {
-    const {
-      classes,
-      light,
-      browser: { isMobile },
-    } = this.props;
+    const { classes, light, isMobile } = this.props;
     const {
       filters: { filterJob, filterLocation, fullTime },
       locationOn,
@@ -252,12 +251,25 @@ export class FilterBar extends Component {
   }
 }
 
+FilterBar.propTypes = {
+  classes: PropTypes.object,
+  light: PropTypes.bool,
+  isMobile: PropTypes.bool,
+  page: PropTypes.number,
+  filter: PropTypes.object,
+  filterActions: PropTypes.func,
+  fetchJobs: PropTypes.func,
+  changePage: PropTypes.func,
+  clearJobs: PropTypes.func,
+  locationActions: PropTypes.func,
+};
+
 const mapStateToProps = (state) => {
   return {
     filter: state.filter,
     page: state.jobs.page,
     light: state.theme.light,
-    browser: state.browser,
+    browser: state.browser.isMobile,
   };
 };
 

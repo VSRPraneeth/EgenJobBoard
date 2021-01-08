@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 import moment from "moment";
 
 // MUI Stuff
@@ -123,6 +123,18 @@ function PositionDescription(props) {
     </Paper>
   );
 }
+
+PositionDescription.propTypes = {
+  classes: PropTypes.object.isRequired,
+  created_at: PropTypes.string,
+  type: PropTypes.string,
+  title: PropTypes.string,
+  location: PropTypes.string,
+  description: PropTypes.string,
+  how_to_apply_link: PropTypes.string,
+  loading_job: PropTypes.bool,
+  isMobile: PropTypes.bool,
+};
 
 const mapStateToProps = (state) => {
   return {

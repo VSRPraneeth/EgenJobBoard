@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 // MUI Stuff
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -195,6 +196,13 @@ class PositionDetails extends Component {
     );
   }
 }
+
+PositionDetails.propTypes = {
+  classes: PropTypes.object.isRequired,
+  jobs: PropTypes.object,
+  isMobile: PropTypes.bool.isRequired,
+  fetchJob: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => {
   return {

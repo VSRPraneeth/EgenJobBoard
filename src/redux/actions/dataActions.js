@@ -10,7 +10,6 @@ import {
 } from "../types";
 
 import axios from "axios";
-import { testValue, testValues } from "../../test";
 
 // All Jobs
 export const fetchJobsRequest = () => {
@@ -56,17 +55,9 @@ export const fetchJobs = (filterData, pageNumber) => (dispatch) => {
     }
   }
   dispatch(fetchJobsRequest());
-  console.log("GET Jobss : ", params);
-  // setTimeout(() => {
-  //   dispatch(fetchJobsSuccess(testValues));
-  // }, 2000);
-  var date = new Date();
-  console.log(date.getTime());
   axios
     .get("/positions.json", { params: params })
     .then((res) => {
-      var date = new Date();
-      console.log(date.getTime());
       dispatch(fetchJobsSuccess(res.data));
     })
     .catch((err) => {
@@ -98,10 +89,6 @@ export const fetchJobFailure = (error) => {
 
 export const fetchJob = (jobId) => (dispatch) => {
   dispatch(fetchJobRequest());
-  // setTimeout(() => {
-  //   console.log("GET Job : ", testValue);
-  //   dispatch(fetchJobSuccess(testValue));
-  // }, 2000);
   axios
     .get(`/positions/${jobId}.json`)
     .then((res) => {

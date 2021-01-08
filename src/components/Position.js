@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 import moment from "moment";
 
 // Router
@@ -58,7 +58,7 @@ function Position(props) {
   return (
     <div className={classes.cardRoot}>
       <MuiLink component={Link} to={`/positions/${id}`}>
-        <Paper className={"flex container column"}>
+        <Paper className="flex container column">
           <Avatar
             style={{
               marginLeft: "10px",
@@ -100,5 +100,10 @@ function Position(props) {
     </div>
   );
 }
+
+Position.propTypes = {
+  classes: PropTypes.object.isRequired,
+  position: PropTypes.object.isRequired,
+};
 
 export default withStyles(styles)(Position);

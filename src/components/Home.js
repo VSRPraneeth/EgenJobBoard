@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 // React Redux
 import { connect } from "react-redux";
@@ -33,12 +34,6 @@ class Home extends Component {
   componentDidMount() {
     this.props.clearJobs();
     this.props.fetchJobs(this.props.filter, this.props.jobs.page);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    // console.log("nextProps", nextProps);
-    if (nextProps.filter.filterLatLong) {
-    }
   }
 
   handleLoad = (event) => {
@@ -118,6 +113,16 @@ class Home extends Component {
     );
   }
 }
+
+Home.propTypes = {
+  classes: PropTypes.object.isRequired,
+  jobs: PropTypes.object,
+  filter: PropTypes.object.isRequired,
+  isMobile: PropTypes.bool.isRequired,
+  fetchJobs: PropTypes.object.isRequired,
+  changePage: PropTypes.object.isRequired,
+  clearJobs: PropTypes.object.isRequired,
+};
 const mapStateToProps = (state) => {
   return {
     jobs: state.jobs,

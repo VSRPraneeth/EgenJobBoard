@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 // MUI
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -48,8 +49,9 @@ const styles = (theme) => ({
     marginBottom: 20,
   },
   image: {
-    minWidth: 80,
+    minWidth: 50,
     maxWidth: 200,
+    height: 100,
     objectFit: "contain",
   },
   content: {
@@ -90,6 +92,7 @@ function PositionHeader(props) {
     <Paper
       className={`flex container ` + (isMobile ? "column" : "row")}
       style={{ width: "auto", alignItems: "center" }}
+      data-test="PositionHeaderComponent"
     >
       {loading_job ? (
         <div
@@ -134,6 +137,15 @@ function PositionHeader(props) {
     </Paper>
   );
 }
+
+PositionHeader.propTypes = {
+  classes: PropTypes.object.isRequired,
+  company: PropTypes.string,
+  company_url: PropTypes.string,
+  company_logo: PropTypes.string,
+  loading_job: PropTypes.bool,
+  isMobile: PropTypes.bool.isRequired,
+};
 
 const mapStateToProps = (state) => {
   return {

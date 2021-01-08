@@ -2,7 +2,7 @@ import { MOBILE_BROWSER, LOCATION_ON } from "../types";
 
 const initialState = {
   isMobile: false,
-  locationOn: false,
+  locationOn: true,
 };
 
 const browserReducer = (state = initialState, { type, payload }) => {

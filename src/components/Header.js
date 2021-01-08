@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 //MUI stuff
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -57,6 +58,12 @@ function Header(props) {
     </div>
   );
 }
+
+Header.propTypes = {
+  classes: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
+  toggleTheme: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => {
   return {
